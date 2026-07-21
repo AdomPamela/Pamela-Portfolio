@@ -1,24 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/portfolio/nav";
+import { PortfolioPage } from "@/components/portfolio/portfolio-page";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Pamela Adom Osom Boafo — AI Engineer & Software Developer" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Pamela Adom Osom Boafo — Software Engineer and AI Developer building intelligent systems and healthtech-focused applications.",
+      },
+      { property: "og:title", content: "Pamela Adom Osom Boafo — AI Engineer & Software Developer" },
+      {
+        property: "og:description",
+        content:
+          "Building modern software, AI systems, and intelligent digital experiences that solve meaningful problems.",
+      },
+      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "Pamela Adom Osom Boafo — AI Engineer & Software Developer" },
+      {
+        name: "twitter:description",
+        content:
+          "Software Engineer · AI Developer · Future ML Researcher — based in Chengdu, from Ghana.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Nav />
+      <main>
+        <PortfolioPage />
+      </main>
+    </>
   );
 }

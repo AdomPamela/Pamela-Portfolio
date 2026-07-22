@@ -115,7 +115,7 @@ function Hero() {
               <a href="#contact" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02] hover:border-primary/40">
                 Contact Me
               </a>
-              <a href="#" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02]">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02]">
                 <Download className="h-4 w-4" /> Resume
               </a>
             </div>

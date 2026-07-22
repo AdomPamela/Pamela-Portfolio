@@ -804,6 +804,12 @@ export function PortfolioPage() {
             alumniOf: "Chengdu Neusoft University",
             address: { "@type": "PostalAddress", addressLocality: "Chengdu", addressRegion: "Sichuan", addressCountry: "CN" },
             knowsAbout: ["Artificial Intelligence", "Machine Learning", "Computer Vision", "Software Engineering", "Healthtech"],
+            email: "mailto:osomboafopamela@gmail.com",
+            url: "https://github.com/AdomPamela",
+            sameAs: [
+              "https://github.com/AdomPamela",
+              "https://www.linkedin.com/in/pamela-osom-boafo-976752352/",
+            ],
           }),
         }}
       />

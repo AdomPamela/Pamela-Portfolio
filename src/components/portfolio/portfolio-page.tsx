@@ -625,11 +625,11 @@ function Testimonials() {
 
 /* ---------- Contact ---------- */
 function Contact() {
-  const [status, setStatus] = useState<null | "sent">(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<{ [k: string]: string }>({});
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs: { [k: string]: string } = {};
     if (form.name.trim().length < 2) errs.name = "Please enter your name";
@@ -637,8 +637,26 @@ function Contact() {
     if (form.message.trim().length < 10) errs.message = "Tell me a bit more (10+ chars)";
     setErrors(errs);
     if (Object.keys(errs).length) return;
-    setStatus("sent");
-    setForm({ name: "", email: "", message: "" });
+
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/osomboafopamela@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio contact from ${form.name}`,
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -649,24 +667,40 @@ function Contact() {
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "pamela@example.com", href: "mailto:pamela@example.com" },
-              { icon: Github, label: "GitHub", value: "github.com/pamela", href: "https://github.com" },
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/pamela", href: "https://linkedin.com" },
+              { icon: Mail, label: "Email", value: "osomboafopamela@gmail.com", href: "mailto:osomboafopamela@gmail.com" },
+              { icon: Github, label: "GitHub", value: "github.com/AdomPamela", href: "https://github.com/AdomPamela" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/pamela-osom-boafo", href: "https://www.linkedin.com/in/pamela-osom-boafo-976752352/" },
               { icon: MapPin, label: "Location", value: "Chengdu, Sichuan, China" },
-            ].map((c, i) => (
-              <Reveal key={c.label} delay={i * 0.05}>
-                <a href={c.href ?? "#"} className="glass card-hover flex items-center gap-4 rounded-2xl p-5">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl"
-                    style={{ background: "color-mix(in oklab, var(--primary) 18%, transparent)", border: "1px solid var(--border)" }}>
-                    <c.icon className="h-5 w-5 text-primary" />
-                  </span>
-                  <div>
-                    <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
-                    <div className="text-sm">{c.value}</div>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
+            ].map((c, i) => {
+              const external = c.href?.startsWith("http");
+              return (
+                <Reveal key={c.label} delay={i * 0.05}>
+                  {c.href ? (
+                    <a href={c.href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="glass card-hover flex items-center gap-4 rounded-2xl p-5">
+                      <span className="grid h-11 w-11 place-items-center rounded-xl"
+                        style={{ background: "color-mix(in oklab, var(--primary) 18%, transparent)", border: "1px solid var(--border)" }}>
+                        <c.icon className="h-5 w-5 text-primary" />
+                      </span>
+                      <div>
+                        <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
+                        <div className="text-sm break-all">{c.value}</div>
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="glass flex items-center gap-4 rounded-2xl p-5">
+                      <span className="grid h-11 w-11 place-items-center rounded-xl"
+                        style={{ background: "color-mix(in oklab, var(--primary) 18%, transparent)", border: "1px solid var(--border)" }}>
+                        <c.icon className="h-5 w-5 text-primary" />
+                      </span>
+                      <div>
+                        <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
+                        <div className="text-sm">{c.value}</div>
+                      </div>
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal delay={0.1}>
@@ -711,12 +745,19 @@ function Contact() {
               </div>
               <div className="mt-6 flex items-center justify-between gap-4">
                 <div className="text-xs text-muted-foreground">
-                  {status === "sent" ? "Thanks — I'll get back to you soon." : "I usually reply within a few days."}
+                  {status === "sent" && "Thanks — I'll get back to you soon."}
+                  {status === "sending" && "Sending…"}
+                  {status === "error" && (
+                    <>Couldn't send. Email me at{" "}
+                      <a className="underline" href="mailto:osomboafopamela@gmail.com">osomboafopamela@gmail.com</a>.</>
+                  )}
+                  {status === "idle" && "I usually reply within a few days."}
                 </div>
-                <button type="submit"
-                  className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-primary-foreground transition-all hover:scale-[1.02]"
+                <button type="submit" disabled={status === "sending"}
+                  className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-primary-foreground transition-all hover:scale-[1.02] disabled:opacity-60"
                   style={{ background: "linear-gradient(135deg, var(--primary), var(--secondary))", boxShadow: "var(--shadow-glow)" }}>
-                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /> Send message
+                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  {status === "sending" ? "Sending…" : "Send message"}
                 </button>
               </div>
             </form>

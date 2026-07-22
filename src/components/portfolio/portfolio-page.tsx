@@ -124,11 +124,11 @@ function Hero() {
           <Reveal delay={0.4}>
             <div className="mt-10 flex items-center gap-3">
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+                { icon: Github, href: "https://github.com/AdomPamela", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/pamela-osom-boafo-976752352/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:osomboafopamela@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
-                <a key={label} href={href} aria-label={label}
+                <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} aria-label={label}
                   className="glass grid h-11 w-11 place-items-center rounded-full transition-all hover:scale-110 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_var(--primary)]">
                   <Icon className="h-4 w-4" />
                 </a>

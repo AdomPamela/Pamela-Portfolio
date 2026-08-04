@@ -182,20 +182,21 @@ function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title
 
 /* ---------- About ---------- */
 const timeline = [
-  { icon: "🇬🇭", label: "Roots in Ghana" },
+  { icon: "🇬🇭", label: "Ghanaian, studying in China" },
   { icon: "💻", label: "Software Engineering" },
-  { icon: "📱", label: "Mobile Development" },
-  { icon: "🧠", label: "Artificial Intelligence" },
-  { icon: "🤖", label: "Machine Learning" },
-  { icon: "🔬", label: "Research" },
-  { icon: "🎓", label: "Graduate Studies" },
+  { icon: "🌐", label: "Full-Stack Web Development" },
+  { icon: "📱", label: "Mobile App Development" },
+  { icon: "🧠", label: "AI Application Development" },
+  { icon: "🗄️", label: "Backend & Databases" },
+  { icon: "🚀", label: "Product Building" },
 ];
 
 function About() {
   return (
     <section id="about" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="About" title="Engineer, researcher, curious mind." />
+        <SectionHeader eyebrow="About" title="Engineer, builder, product thinker." />
+
 
         <div className="grid gap-12 lg:grid-cols-[380px_1fr]">
           <Reveal>
@@ -219,20 +220,20 @@ function About() {
           <div>
             <Reveal>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I am a Software Engineering student with a growing specialization in
-                Artificial Intelligence, Machine Learning, and full-stack application
-                development. My passion lies in creating intelligent systems that improve
-                people's lives — from scalable applications to computer vision and
-                AI-powered health experiences.
+                Pamela is a Software Engineering student with practical experience developing
+                full-stack applications, mobile applications, backend systems, and AI-powered
+                solutions — working with React Native, Expo, TypeScript, React, Vue.js, Python,
+                Django, Supabase, PostgreSQL and machine learning technologies.
               </p>
             </Reveal>
             <Reveal delay={0.08}>
               <p className="mt-4 text-muted-foreground">
-                I aspire to contribute to research and innovation in AI while pursuing
-                graduate studies, and to work at the intersection of AI and healthtech to
-                improve human lives.
+                She enjoys transforming ideas into functional products and using AI-assisted
+                development workflows to accelerate software creation — from first prototype
+                to production-ready release.
               </p>
             </Reveal>
+
 
             <Reveal delay={0.16}>
               <div className="mt-10">
@@ -257,10 +258,11 @@ function About() {
             <Reveal delay={0.24}>
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {[
-                  { t: "Current interest", d: "Computer vision for medical imaging" },
-                  { t: "Career goal", d: "AI research → healthtech impact" },
+                  { t: "Current focus", d: "Full-stack & mobile product engineering" },
+                  { t: "Career goal", d: "AI engineering & full-stack roles" },
                   { t: "Core strength", d: "Turning ideas into shipped software" },
                 ].map((c) => (
+
                   <div key={c.t} className="glass rounded-2xl p-5">
                     <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">{c.t}</div>
                     <div className="mt-2 text-sm">{c.d}</div>
@@ -277,13 +279,14 @@ function About() {
 
 /* ---------- Skills ---------- */
 const skillGroups: { title: string; icon: React.ComponentType<{ className?: string }>; items: string[] }[] = [
-  { title: "Languages", icon: Code2, items: ["Python", "JavaScript", "TypeScript", "Java", "SQL"] },
-  { title: "Frontend", icon: Palette, items: ["React", "Next.js", "React Native", "Expo", "Tailwind CSS"] },
-  { title: "Backend", icon: Cpu, items: ["Node.js", "Supabase", "REST APIs"] },
-  { title: "Databases", icon: Database, items: ["PostgreSQL", "SQLite"] },
-  { title: "AI / ML", icon: Brain, items: ["Machine Learning", "Computer Vision", "TensorFlow", "PyTorch"] },
-  { title: "Tools", icon: GitBranch, items: ["Git", "GitHub", "VS Code", "Android Studio", "Figma", "Linux"] },
+  { title: "Programming Languages", icon: Code2, items: ["Python", "JavaScript", "TypeScript", "Java", "Kotlin", "HTML5", "CSS3"] },
+  { title: "Frontend Development", icon: Palette, items: ["React", "React Native", "Expo", "Vue.js", "Vue Router", "Pinia", "Component Architecture"] },
+  { title: "Backend Development", icon: Cpu, items: ["Python", "Django", "Django REST Framework", "REST APIs", "Authentication Systems", "Database Design"] },
+  { title: "Databases", icon: Database, items: ["Supabase", "PostgreSQL", "SQLite"] },
+  { title: "Artificial Intelligence", icon: Brain, items: ["Python AI Development", "Machine Learning Fundamentals", "Computer Vision", "AI Model Integration"] },
+  { title: "Development Tools", icon: GitBranch, items: ["Git", "GitHub", "VS Code", "Android Studio", "AI Coding Assistants"] },
 ];
+
 
 function Skills() {
   return (
@@ -327,42 +330,57 @@ function Skills() {
 /* ---------- Projects ---------- */
 const projects = [
   {
-    name: "SYFoA",
-    tag: "Mobile · Community",
+    name: "SYFoA Fellowship Management Platform",
+    tag: "Full-Stack Mobile",
     icon: Layers,
-    description: "A modern fellowship management platform with authentication, role-based dashboards, announcements, attendance and QR check-in.",
+    description: "A role-based fellowship management platform designed to improve communication and community organization.",
+    features: ["User authentication & profile management", "Role-based access control", "Announcements & community features", "Secure backend integration"],
+    tech: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL"],
+    href: "#",
+    repo: "https://github.com/AdomPamela",
+  },
+  {
+    name: "PamCheck Productivity App",
+    tag: "Mobile Application",
+    icon: Bot,
+    description: "A productivity-focused mobile application designed to help users manage tasks and improve personal organization.",
+    features: ["Modern mobile interface", "Reusable component architecture", "Navigation architecture", "Backend integration"],
     tech: ["React Native", "Expo", "TypeScript", "Supabase"],
     href: "#",
-    repo: "#",
+    repo: "https://github.com/AdomPamela",
   },
   {
-    name: "AI Eye Disease Detection",
-    tag: "AI · Computer Vision",
+    name: "AI Eye Disease Detection System",
+    tag: "Artificial Intelligence",
     icon: Eye,
-    description: "Detecting eye diseases from retinal images using deep learning — a medical AI research direction focused on CNNs and responsible deployment.",
-    tech: ["Python", "PyTorch", "CNN", "Medical AI"],
+    description: "An AI-powered healthcare concept exploring intelligent image-based disease detection.",
+    features: ["Image classification pipeline", "AI model experimentation", "Computer vision workflows", "Healthcare technology application"],
+    tech: ["Python", "Machine Learning", "Computer Vision"],
     href: "#",
-    repo: "#",
+    repo: "https://github.com/AdomPamela",
   },
   {
-    name: "PamCheck",
-    tag: "Mobile · Productivity",
-    icon: Bot,
-    description: "A modern productivity app with task creation, categories, reminders, progress tracking and a clean mobile-first UI.",
-    tech: ["React Native", "Expo", "TypeScript"],
+    name: "Beauty & Lifestyle Android App",
+    tag: "Android Application",
+    icon: Palette,
+    description: "A multi-category lifestyle Android application featuring authentication, content browsing, and local data management.",
+    features: ["Native Android UI", "User authentication", "Multi-category content browsing", "Local SQLite persistence"],
+    tech: ["Kotlin", "Android Studio", "SQLite"],
     href: "#",
-    repo: "#",
+    repo: "https://github.com/AdomPamela",
   },
   {
-    name: "Portfolio Site",
-    tag: "Web · Design",
-    icon: Sparkles,
-    description: "The site you're on — a futuristic personal portfolio built with TanStack Start, Tailwind and Framer Motion.",
-    tech: ["React", "TanStack", "Tailwind", "Framer Motion"],
+    name: "miniMall WeChat Mini Program",
+    tag: "E-commerce",
+    icon: Rocket,
+    description: "An e-commerce mini program with product listings, shopping features, navigation, and API integration.",
+    features: ["Product listings & detail views", "Shopping cart flow", "Tab-based navigation", "External API integration"],
+    tech: ["JavaScript", "WeChat Mini Program", "REST APIs"],
     href: "#",
-    repo: "#",
+    repo: "https://github.com/AdomPamela",
   },
 ];
+
 
 function Projects() {
   return (
@@ -392,6 +410,14 @@ function Projects() {
                     <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                   </div>
                   <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
+                  <ul className="mt-4 space-y-1.5">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full" style={{ background: "var(--secondary)" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {p.tech.map((t) => (
                       <span key={t} className="font-mono rounded-full border px-2.5 py-0.5 text-[10px] text-muted-foreground"
@@ -416,46 +442,65 @@ function Projects() {
   );
 }
 
-/* ---------- Research ---------- */
-const research = [
-  { icon: Brain, title: "Artificial Intelligence", desc: "Foundations, agents, reasoning systems." },
-  { icon: LineChart, title: "Machine Learning", desc: "Supervised / self-supervised learning at scale." },
-  { icon: Eye, title: "Computer Vision", desc: "Perception, segmentation, medical imaging." },
-  { icon: Sparkles, title: "Medical AI", desc: "Clinically-grounded, safe AI for healthcare." },
-  { icon: Compass, title: "Human-Computer Interaction", desc: "How people and intelligent systems collaborate." },
-  { icon: Cpu, title: "Software Engineering", desc: "Reliable systems that carry ML into production." },
-  { icon: Award, title: "Responsible AI", desc: "Fairness, safety, and evaluation." },
-  { icon: GraduationCap, title: "Future Graduate Research", desc: "Pursuing an MS / PhD in AI." },
+/* ---------- AI-Augmented Software Engineering ---------- */
+const aiWorkflow = [
+  { icon: Bot, title: "AI-assisted coding", desc: "Pairing with AI assistants to write, review and refactor production code faster." },
+  { icon: Rocket, title: "Rapid MVP development", desc: "Going from concept to a working prototype in days, not weeks." },
+  { icon: Compass, title: "AI debugging workflows", desc: "Isolating failures and reasoning through stack traces with AI in the loop." },
+  { icon: Sparkles, title: "Prompt engineering", desc: "Designing precise prompts and context for reliable, repeatable output." },
+  { icon: Layers, title: "Product prototyping", desc: "Turning product ideas into interactive, testable software artifacts." },
+  { icon: Cpu, title: "Architecture exploration", desc: "Comparing system designs and trade-offs before committing to an approach." },
 ];
 
-function Research() {
+function AiWorkflow() {
   return (
-    <section id="research" className="relative py-28">
+    <section id="ai" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="Research" title="Research interests." description="Where I'm reading, prototyping, and hoping to contribute." />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {research.map((r, i) => (
-            <Reveal key={r.title} delay={i * 0.04}>
-              <div className="glass card-hover h-full rounded-3xl p-5">
-                <r.icon className="h-6 w-6 text-secondary" />
-                <div className="mt-4 font-display text-base font-semibold">{r.title}</div>
-                <div className="mt-1.5 text-xs text-muted-foreground">{r.desc}</div>
-              </div>
-            </Reveal>
-          ))}
+        <div className="glass-strong relative overflow-hidden rounded-[2rem] p-8 sm:p-12">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-40 blur-3xl" style={{ background: "var(--primary)" }} />
+          <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full opacity-30 blur-3xl" style={{ background: "var(--secondary)" }} />
+          <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+
+          <div className="relative max-w-3xl">
+            <div className="font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground">
+              <span className="text-primary">/</span> AI-Augmented Engineering
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+              AI as an engineering accelerator.
+            </h2>
+            <p className="mt-4 text-muted-foreground sm:text-lg">
+              Using AI tools as engineering accelerators for rapid prototyping, debugging,
+              architecture exploration, documentation, and product iteration.
+            </p>
+          </div>
+
+          <div className="relative mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {aiWorkflow.map((r, i) => (
+              <Reveal key={r.title} delay={i * 0.05}>
+                <div className="glass card-hover h-full rounded-2xl p-5">
+                  <r.icon className="h-6 w-6 text-secondary" />
+                  <div className="mt-4 font-display text-base font-semibold">{r.title}</div>
+                  <div className="mt-1.5 text-xs text-muted-foreground">{r.desc}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
+
 /* ---------- Experience ---------- */
 const experiences = [
-  { time: "2024 — Present", title: "Software Engineering Student", org: "Chengdu Neusoft University", desc: "Building full-stack applications and diving into AI/ML coursework and personal research." },
-  { time: "2024 — Present", title: "AI-focused Developer", org: "Independent", desc: "Prototyping computer-vision and mobile AI projects across health, productivity and community." },
-  { time: "2024 — Present", title: "Independent Project Builder", org: "Self-directed", desc: "Shipping personal products end-to-end: design, engineering, and iteration." },
-  { time: "Coming soon", title: "Research / Internship", org: "Open to opportunities", desc: "Seeking AI research or engineering internships and collaborations." },
+  { time: "2024", title: "Android Development Projects", org: "Kotlin · Android Studio · SQLite", desc: "Built multi-screen Android applications with authentication, content browsing and local data persistence." },
+  { time: "2024 — 2025", title: "Vue.js Web Development", org: "Vue 3 · Vue Router · Pinia", desc: "Developed component-driven web interfaces with client-side routing, shared state and API integration." },
+  { time: "2026", title: "React Native Full-Stack Development", org: "React Native · Expo · TypeScript · Supabase", desc: "Shipped production-style mobile apps with authentication, role-based access and PostgreSQL-backed APIs." },
+  { time: "2026", title: "AI Application Development", org: "Python · Machine Learning · Computer Vision", desc: "Explored image classification and model integration for healthcare-oriented AI applications." },
+  { time: "2026", title: "AI-Augmented Software Engineering", org: "AI-assisted workflow", desc: "Using AI tooling for rapid prototyping, debugging, architecture exploration and documentation." },
 ];
+
 
 function Experience() {
   return (
@@ -516,7 +561,7 @@ function Education() {
                 projects and research reading.
               </p>
               <div className="relative mt-6 flex flex-wrap gap-2">
-                {["Software Engineering", "AI Fundamentals", "Data Structures", "Mobile Development"].map((c) => (
+                {["Software Engineering", "Artificial Intelligence", "Object-Oriented Design", "Python Application Development", "Software Testing", "Database Systems"].map((c) => (
                   <span key={c} className="glass rounded-full px-3 py-1 text-xs text-muted-foreground">{c}</span>
                 ))}
               </div>
@@ -593,36 +638,8 @@ function Stats() {
   );
 }
 
-/* ---------- Testimonials ---------- */
-function Testimonials() {
-  const items = [
-    { q: "Placeholder for a future testimonial from a professor or collaborator.", who: "— Future collaborator" },
-    { q: "Placeholder for a recommendation from an internship or research supervisor.", who: "— Future mentor" },
-    { q: "Placeholder for feedback from a teammate or open-source contributor.", who: "— Future teammate" },
-  ];
-  return (
-    <section className="relative py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="Kind Words" title="Testimonials." description="Space reserved for future recommendations from mentors, professors and collaborators." />
-        <div className="grid gap-5 md:grid-cols-3">
-          {items.map((t, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <div className="glass card-hover h-full rounded-3xl p-6">
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="h-3.5 w-3.5 fill-secondary text-secondary" />
-                  ))}
-                </div>
-                <p className="mt-4 text-sm italic text-muted-foreground">"{t.q}"</p>
-                <div className="mt-4 text-xs font-mono text-muted-foreground">{t.who}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+/* ---------- Contact ---------- */
+
 
 /* ---------- Contact ---------- */
 function Contact() {
@@ -818,11 +835,11 @@ export function PortfolioPage() {
       <About />
       <Skills />
       <Projects />
-      <Research />
+      <AiWorkflow />
       <Experience />
       <Education />
       <Stats />
-      <Testimonials />
+
       <Contact />
       <Footer />
     </div>

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight, ArrowUpRight, Download, Github, Linkedin, Mail, MapPin,
   Compass, Code2, Brain, Cpu, Database, Palette, GitBranch, Sparkles,
-  GraduationCap, Award, Send, Eye, Bot, Layers, LineChart, Rocket, Star,
+  GraduationCap, Award, Send, Eye, Bot, Layers, Rocket,
 } from "lucide-react";
 
 /* ---------- Reveal wrapper ---------- */
@@ -386,7 +386,7 @@ function Projects() {
   return (
     <section id="projects" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="Featured Work" title="Selected projects." description="A mix of shipped applications and applied AI experiments." />
+        <SectionHeader eyebrow="Featured Work" title="Selected projects." description="Full-stack, mobile and AI applications built end-to-end — from data model to shipped interface." />
 
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
@@ -538,7 +538,7 @@ function Education() {
   return (
     <section id="education" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="Education" title="Where I'm learning." />
+        <SectionHeader eyebrow="Education" title="Academic background." />
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <div className="glass-strong relative overflow-hidden rounded-3xl p-8">
@@ -615,10 +615,11 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 function Stats() {
   const stats = [
-    { v: 12, s: "+", l: "Projects shipped" },
-    { v: 20, s: "+", l: "Technologies" },
-    { v: 3, s: "yr", l: "Learning journey" },
-    { v: 1, s: "", l: "Big goal: AI research" },
+    { v: 5, s: "+", l: "Projects shipped" },
+    { v: 25, s: "+", l: "Technologies used" },
+    { v: 3, s: "yr", l: "Engineering journey" },
+    { v: 4, s: "", l: "Platforms: web, mobile, AI, backend" },
+
   ];
   return (
     <section className="relative py-16">
@@ -680,7 +681,7 @@ function Contact() {
   return (
     <section id="contact" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader eyebrow="Contact" title="Let's build something meaningful." description="Open to research collaborations, internships, and thoughtful projects." />
+        <SectionHeader eyebrow="Contact" title="Let's build something meaningful." description="Interested in collaboration, software engineering opportunities, and innovative technology projects." />
 
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
@@ -817,7 +818,7 @@ export function PortfolioPage() {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Pamela Adom Osom Boafo",
-            jobTitle: "Software Engineer, AI Developer",
+            jobTitle: "Software Engineer | Full-Stack Developer | AI Application Builder",
             nationality: "Ghanaian",
             alumniOf: "Chengdu Neusoft University",
             address: { "@type": "PostalAddress", addressLocality: "Chengdu", addressRegion: "Sichuan", addressCountry: "CN" },

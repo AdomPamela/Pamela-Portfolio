@@ -80,20 +80,20 @@ function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
-              Available for AI research & engineering roles
+              Open to software engineering & AI developer roles
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h1 className="mt-6 font-display text-5xl leading-[1.02] font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-              <span className="text-muted-foreground text-2xl sm:text-3xl block mb-3 font-normal">Hello, I'm</span>
-              <span className="text-gradient">Pamela Adom<br/>Osom Boafo.</span>
+            <h1 className="mt-6 font-display text-4xl leading-[1.06] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="text-muted-foreground text-xl sm:text-2xl block mb-3 font-normal">Pamela Adom Osom Boafo</span>
+              <span className="text-gradient">Building intelligent software solutions with code, creativity, and AI.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
             <div className="mt-6 flex flex-wrap gap-2 font-mono text-xs">
-              {["Software Engineer", "AI Developer", "ML Researcher-in-training"].map((t) => (
+              {["Software Engineer", "Full-Stack Developer", "AI Application Builder"].map((t) => (
                 <span key={t} className="glass rounded-full px-3 py-1.5 text-muted-foreground">{t}</span>
               ))}
             </div>
@@ -101,8 +101,8 @@ function Hero() {
 
           <Reveal delay={0.22}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Building modern software, AI systems, and intelligent digital experiences that
-              solve meaningful problems — from healthtech to research.
+              Software Engineering student specializing in full-stack development, mobile
+              applications, backend systems, and AI-powered applications.
             </p>
           </Reveal>
 
@@ -110,13 +110,13 @@ function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href="#projects" className="group relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-primary-foreground transition-all hover:scale-[1.02]"
                 style={{ background: "linear-gradient(135deg, var(--primary), var(--secondary))", boxShadow: "var(--shadow-glow)" }}>
-                View Projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                View My Projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a href="#contact" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02] hover:border-primary/40">
-                Contact Me
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02] hover:border-primary/40">
+                <Download className="h-4 w-4" /> Download CV
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02]">
-                <Download className="h-4 w-4" /> Resume
+              <a href="#contact" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02]">
+                Contact
               </a>
             </div>
           </Reveal>
@@ -134,10 +134,11 @@ function Hero() {
                 </a>
               ))}
               <div className="ml-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <MapPin className="h-3.5 w-3.5" /> Chengdu, China · from 🇬🇭 Ghana
+                <MapPin className="h-3.5 w-3.5" /> Chengdu, Sichuan, China
               </div>
             </div>
           </Reveal>
+
         </div>
 
         <div className="order-1 lg:order-2">

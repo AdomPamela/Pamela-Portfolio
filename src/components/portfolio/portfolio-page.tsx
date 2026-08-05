@@ -5,6 +5,7 @@ import {
   Compass, Code2, Brain, Cpu, Database, Palette, GitBranch, Sparkles,
   GraduationCap, Award, Send, Eye, Bot, Layers, Rocket,
 } from "lucide-react";
+import cvAsset from "@/assets/cv.docx.asset.json";
 
 /* ---------- Reveal wrapper ---------- */
 function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -112,7 +113,7 @@ function Hero() {
                 style={{ background: "linear-gradient(135deg, var(--primary), var(--secondary))", boxShadow: "var(--shadow-glow)" }}>
                 View My Projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02] hover:border-primary/40">
+              <a href={cvAsset.url} download="Pamela_Adom_Osom_Boafo_CV.docx" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02] hover:border-primary/40">
                 <Download className="h-4 w-4" /> Download CV
               </a>
               <a href="#contact" className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all hover:scale-[1.02]">

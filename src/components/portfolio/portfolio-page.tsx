@@ -705,7 +705,7 @@ function Contact() {
                       </span>
                       <div>
                         <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
-                        <div className="text-sm break-all">{c.value}</div>
+                        <div className="text-sm font-medium text-foreground break-all">{c.value}</div>
                       </div>
                     </a>
                   ) : (
@@ -716,7 +716,7 @@ function Contact() {
                       </span>
                       <div>
                         <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
-                        <div className="text-sm">{c.value}</div>
+                        <div className="text-sm font-medium text-foreground">{c.value}</div>
                       </div>
                     </div>
                   )}

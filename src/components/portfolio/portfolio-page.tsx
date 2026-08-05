@@ -123,21 +123,23 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="mt-10 flex items-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               {[
                 { icon: Github, href: "https://github.com/AdomPamela", label: "GitHub" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/pamela-osom-boafo-976752352/", label: "LinkedIn" },
                 { icon: Mail, href: "mailto:osomboafopamela@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} aria-label={label}
-                  className="glass grid h-11 w-11 place-items-center rounded-full transition-all hover:scale-110 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_var(--primary)]">
-                  <Icon className="h-4 w-4" />
+                  className="glass flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:scale-[1.04] hover:border-primary/60 hover:bg-primary/20 hover:shadow-[0_0_30px_-5px_var(--primary)]">
+                  <Icon className="h-4 w-4 text-primary" />
+                  <span>{label}</span>
                 </a>
               ))}
-              <div className="ml-2 flex items-center gap-1.5 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <MapPin className="h-3.5 w-3.5" /> Chengdu, Sichuan, China
               </div>
             </div>
+
           </Reveal>
 
         </div>
@@ -703,7 +705,7 @@ function Contact() {
                       </span>
                       <div>
                         <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
-                        <div className="text-sm break-all">{c.value}</div>
+                        <div className="text-sm font-medium text-foreground break-all">{c.value}</div>
                       </div>
                     </a>
                   ) : (
@@ -714,7 +716,7 @@ function Contact() {
                       </span>
                       <div>
                         <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-muted-foreground">{c.label}</div>
-                        <div className="text-sm">{c.value}</div>
+                        <div className="text-sm font-medium text-foreground">{c.value}</div>
                       </div>
                     </div>
                   )}
